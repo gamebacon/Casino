@@ -1,8 +1,10 @@
 class homo {
 	public static void main(String[] args) {
-		System.out.println("Big homo test2");
 
-		// hello guys just made a few changes here,
-		//test
+		int lol =  123400;
+		String str = Integer.toString(lol);
+		int newLol = str.replaceFirst("^0+(?!$)", "");
+
+		System.out.println(newLol);
 	}
 }
