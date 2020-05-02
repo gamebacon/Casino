@@ -101,7 +101,7 @@ class Casino {
 		int[] values = new int[3];
 
 		for(int i = 0; i < 3; i++) {
-			int ranNum = (int) (Math.random() * 2);
+			int ranNum = (int) (Math.random() * 10);
 			values[i] = ranNum;
 			_bars[i].setText(Integer.toString(ranNum));
 		}
@@ -114,6 +114,7 @@ class Casino {
 			winThread.start();
 			System.out.println("WIN!");
 		} else {
+			midi.playSound(30,120, 1);
 			System.out.println("No win.");
 			isRunning = false;
 		}
@@ -142,7 +143,6 @@ class Casino {
 		public void actionPerformed(ActionEvent event) {
 			if(!isRunning && player.getBalance() >= 5) {
 				isRunning = true;
-				midi.playSound(30,120, 1);
 				player.manageBalance(5, false);
 				spin(bars);
 			}
